@@ -43,15 +43,10 @@ export class ProfilePage {
     this._event.publish('user:logout');
   }
   public UIupdate = (isClient) => {
-	if (isClient==true){
-		this.isEnglish?this.localizationModel.showModalInfo("You are now using the app as a client", 2500):this.localizationModel.showModalInfo("Ahora estás usando la app en modo cliente", 1500)
-	}
-	else if (isClient==false){
-		this.isEnglish?this.localizationModel.showModalInfo("You are now using the app as an agent", 2500):this.localizationModel.showModalInfo("Ahora estás usando la app en modo agente", 1500)
-	}
-    localStorage.setItem("isFirstEnterToHomeScreen", "true");
+    localStorage.setItem("isFirstEnterToHomeScreeb", "true");
+    this.alertService.showLoading();
     setTimeout(()=>{
       this._event.publish('user:client', isClient);
-    }, 300)
-  }  
+    }, 500)
+  } 
 }
